@@ -125,8 +125,8 @@ public class DoctorController {
         return doctorRepository.findAll();
     }
 
-    @GetMapping("getById")
-    public Optional<Doctor> getDoctor(@PathVariable String id){
+    @GetMapping("getById/{id}")
+    public Optional<Doctor> getDoctor(@PathVariable("id") String id){
         return doctorRepository.findById(id);
     }
 
