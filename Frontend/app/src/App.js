@@ -20,12 +20,16 @@ import CreateAttendant from "./Pages/Attendant/CreateAttendant";
 import UpdateRoom from "./Pages/Room/UpdateRoom";
 import UpdateAttendant from "./Pages/Attendant/UpdateAttendent";
 import UpdateDoctor from "./Pages/Doctor/UpdateDoctor";
+import AboutDoctor from "./Pages/Doctor/AboutDoctor";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
+          <Route path="/about">
+            <AboutDoctor />
+          </Route>
           <Route exact path="/">
             <UserLogin />
           </Route>
@@ -36,7 +40,7 @@ function App() {
             <CreateDoctor />
           </Route>
           <Route path="/updateDoctor">
-            <UpdateDoctor/>
+            <UpdateDoctor />
           </Route>
           <Route path="/createPatient">
             <CreatePatient />
@@ -72,7 +76,7 @@ function App() {
             <CreateRoom />
           </Route>
           <Route path="/updateRoom">
-            <UpdateRoom/>
+            <UpdateRoom />
           </Route>
           <Route path="/attendantList">
             <AttendantList />
@@ -81,11 +85,11 @@ function App() {
             <CreateAttendant />
           </Route>
           <Route path="/updateAttendent">
-          <UpdateAttendant/>
-          </Route>          
+            <UpdateAttendant />
+          </Route>
           <Route path="/addUser">
             <AddUser />
-          </Route>             
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>

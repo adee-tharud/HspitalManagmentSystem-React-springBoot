@@ -49,13 +49,14 @@ export default class UserLogin extends Component {
           title: "Login Successful!!",
         }).then(() => {
           localStorage.setItem("name", res.data.username);
+          localStorage.setItem("id", res.data.id)
           // check the role and redirect to the page
           if(res.data.roles[0] === "ROLE_ADMIN"){
             window.location = "/appointmentList"
           }else if (res.data.roles[0] === "ROLE_DOCTOR"){
             window.location = "/patientList"
           }else if(res.data.roles[0] === "ROLE_PATIENT"){
-            window.location = "/createAppointment"
+            window.location = "/createPatient"
           }else{
             console.log("cant find role =>" + res.data.roles[0])
           }

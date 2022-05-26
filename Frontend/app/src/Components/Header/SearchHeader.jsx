@@ -76,7 +76,7 @@ export default class SearchHeader extends Component {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/about">
                     Profile
                   </a>
                 </li>

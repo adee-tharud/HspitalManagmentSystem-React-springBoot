@@ -4,6 +4,8 @@ import DriverList from "../../Pages/Ambulance/AmbulanceList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
+
+
 export default function Header(props) {
   return (
     <div className="header">
@@ -14,7 +16,6 @@ export default function Header(props) {
         <div className="col d-flex justify-content-end">
           <div className="dropdown me-4">
             <a
-              href="#"
               className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
               id="dropdownUser1"
               data-bs-toggle="dropdown"
@@ -29,17 +30,18 @@ export default function Header(props) {
               />
               <strong>{localStorage.getItem("name").toString}</strong>
             </a>
-            <ul
+           <div>
+           <ul
               className="dropdown-menu dropdown-menu-dark text-small shadow"
               aria-labelledby="dropdownUser1"
             >
               <li>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="ado">
                   Settings
                 </a>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
+                <a to="/"   className="dropdown-item">
                   Profile
                 </a>
               </li>
@@ -52,6 +54,7 @@ export default function Header(props) {
                 </a>
               </li>
             </ul>
+           </div>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import { doctorURL } from "../../Services/endpoints";
 import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 import { deletedoctorURL } from "../../Services/endpoints";
+
 export default class DoctorList extends Component {
 
 
@@ -65,6 +66,7 @@ export default class DoctorList extends Component {
     const { doctors } = this.state;
     return (
       <div>
+        
         <SideNav />
         <div className="content-layer">
           <SearchHeader topic="Doctor Management" />
