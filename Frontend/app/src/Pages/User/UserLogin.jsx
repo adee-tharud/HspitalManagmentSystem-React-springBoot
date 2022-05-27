@@ -54,7 +54,7 @@ export default class UserLogin extends Component {
           if(res.data.roles[0] === "ROLE_ADMIN"){
             window.location = "/appointmentList"
           }else if (res.data.roles[0] === "ROLE_DOCTOR"){
-            window.location = "/patientList"
+            window.location = "/about"
           }else if(res.data.roles[0] === "ROLE_PATIENT"){
             window.location = "/createPatient"
           }else{

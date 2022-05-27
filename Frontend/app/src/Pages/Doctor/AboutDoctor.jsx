@@ -7,6 +7,7 @@ import Header from "../../Components/Header/Header";
 import { getdoctorIDURL, updatepatientURL } from "../../Services/endpoints"; 
 import { getpatientIDURL } from "../../Services/endpoints"; 
 import { updateDoctorURL } from "../../Services/endpoints"; 
+import SideNav from "../../Components/SideNav/SideNav";
 
 export default class AboutDoctor extends Component {
 
@@ -53,7 +54,7 @@ export default class AboutDoctor extends Component {
     if(localStorage.getItem("role")==="ROLE_DOCTOR"){
       await axios.get(getdoctorIDURL+"/"+localStorage.getItem("id")).then((result) => {
         this.setState({
-          id: result.data.docId,
+          id: result.data.doctorId,
           name: result.data.doctorName,
           sps: result.data.specialization,
           pNo: result.data.mobileNo,
@@ -76,7 +77,7 @@ export default class AboutDoctor extends Component {
   handleSubmit= (e) =>{
     e.preventDefault();
     const doctorData = {
-      docId: this.state.id,
+      doctorId: this.state.id,
       doctorName: this.state.name,
       specialization: this.state.sps,
       mobileNo: this.state.pNo,
@@ -117,6 +118,7 @@ export default class AboutDoctor extends Component {
       const { user } = this.state;
         return (
             <div>
+              <SideNav/>
                <div className="content-layer">
              
             <div className="CreateOrder">
@@ -135,7 +137,7 @@ export default class AboutDoctor extends Component {
                         className="form-control"
                        value={ this.state.userRole === "ROLE_DOCTOR"? this.state.id : this.state.nic}
                         type="text"
-                        id="docId"
+                        id="doctorId"
                         name="doctorId"
                         placeholder="Doctor ID"
                         required

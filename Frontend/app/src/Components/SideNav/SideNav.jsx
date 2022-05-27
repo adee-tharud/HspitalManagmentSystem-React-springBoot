@@ -57,6 +57,30 @@ export default function SideNav() {
             </NavLink>
           </li> */}
 
+          {/* About nav Btn */}
+
+          {role !== "ROLE_DOCTOR" && role !== "ROLE_PATIENT" ? null :
+          <li>
+            <NavLink
+              to="/about"
+              activeClassName="active"
+              className="nav-link mt-2 mb-2 text-white"
+            >
+              
+              <div className="row">
+                {role === "ROLE_PATIENT"? <div className="col-4">
+                  <FontAwesomeIcon icon={faUserInjured} size="2x" />
+                </div>:
+                <div className="col-4">
+                  <FontAwesomeIcon icon={faHandHoldingMedical} size="2x" />
+                </div>}
+
+                 {role === "ROLE_PATIENT" ? <div className="col-8 text-start mt-2">My Profile</div>  :   <div className="col-8 text-start mt-2">My Details</div> }
+              </div>
+            </NavLink>
+
+          </li>}
+
           {/* Doctor nav Btn */}
           
           {role !== "ROLE_ADMIN" && role !== "ROLE_PATIENT" ? null
@@ -79,7 +103,7 @@ export default function SideNav() {
 
           {/* Patient nav Btn */}
 
-          { role === "ROLE_PATIENT"
+          { role !== "ROLE_ADMIN" || role === "ROLE_DOCTOR" 
             ? null
             :
             <li>
@@ -116,7 +140,7 @@ export default function SideNav() {
 
           {/* Ambulance nav Btn */}
 
-         { role !== "ROLE_ADMIN" && role !== "ROLE_PATIENT" ? null 
+         { role !== "ROLE_ADMIN" || role == "ROLE_PATIENT" ? null 
          :<li>
             <NavLink
               to="/ambulanceList"
@@ -133,7 +157,8 @@ export default function SideNav() {
           </li>}
 
           {/* Room nav Btn */}
-
+          {role == "ROLE_PATIENT" || role !== "ROLE_ADMIN" ? null
+          :
           <li>
             <NavLink
               to="/roomList"
@@ -147,10 +172,10 @@ export default function SideNav() {
                 <div className="col-8 text-start mt-2">Room</div>
               </div>
             </NavLink>
-          </li>
+          </li>}
 
           {/* Attendant nav Btn */}
-      { role === "ROLE_PATIENT"
+      { role === "ROLE_PATIENT" || role === "ROLE_DOCTOR"
             ? null
             : <li>
             <NavLink
